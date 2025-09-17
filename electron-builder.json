@@ -1,0 +1,174 @@
+{
+  "appId": "com.1solution.carwash.pos",
+  "productName": "1SOLUTION Car Wash POS",
+  "copyright": "Copyright © 2024 1SOLUTION",
+  "asar": false,
+  "directories": {
+    "output": "release/${version}",
+    "buildResources": "build"
+  },
+  "files": [
+    "dist/**/*",
+    "dist-electron/**/*",
+    "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+    "!.editorconfig",
+    "!**/._*",
+    "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
+    "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+    "!**/{appveyor.yml,.travis.yml,circle.yml}",
+    "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}",
+    "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+    "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+    "!**/node_modules/*.d.ts",
+    "!**/node_modules/.bin",
+    "!**/node_modules/@hookform/resolvers/**/*",
+    "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+    "!**/electron.vite.config.{js,ts,mjs,cjs}",
+    "!**/{.eslintrc.js,.eslintrc.json,.eslintrc.yml}",
+    "!**/tsconfig.{json,node.json,web.json}",
+    "!**/{.env,.env.*,.npmrc}",
+    "!**/src",
+    "!**/server",
+    "!**/client",
+    "!**/shared",
+    "!**/build",
+    "!**/{vite.config.*,tailwind.config.*,postcss.config.*,components.json}",
+    "!**/drizzle.config.ts",
+    "!**/README.md",
+    "!**/LICENSE.txt",
+    "!**/.gitignore",
+    "package.json"
+  ],
+  "asarUnpack": [
+    "node_modules/better-sqlite3/**/*",
+    "node_modules/sqlite3/**/*"
+  ],
+  "mac": {
+    "icon": "assets/icon.icns",
+    "artifactName": "${productName}-${version}-${arch}.${ext}",
+    "target": [
+      {
+        "target": "dmg",
+        "arch": [
+          "x64",
+          "arm64"
+        ]
+      }
+    ]
+  },
+  "win": {
+    "icon": "icon.ico",
+    "artifactName": "${productName}-${version}-${arch}.${ext}",
+    "target": [
+      {
+        "target": "nsis",
+        "arch": [
+          "x64"
+        ]
+      },
+      {
+        "target": "portable",
+        "arch": [
+          "x64"
+        ]
+      }
+    ],
+    "requestedExecutionLevel": "asInvoker",
+    "signAndEditExecutable": false,
+    "verifyUpdateCodeSignature": false
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true,
+    "deleteAppDataOnUninstall": false,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "1SOLUTION Car Wash POS",
+    "include": "build/installer.nsh",
+    "artifactName": "${productName}-Setup-${version}.${ext}",
+    "uninstallDisplayName": "1SOLUTION Car Wash POS",
+    "displayLanguageSelector": true,
+    "installerLanguages": [
+      "en_US",
+      "es_ES"
+    ],
+    "language": "es_ES",
+    "multiLanguageInstaller": true,
+    "packElevateHelper": true,
+    "runAfterFinish": true,
+    "menuCategory": "Productivity",
+    "allowElevation": true
+  },
+  "msi": {
+    "artifactName": "${productName}-${version}-${arch}.${ext}",
+    "oneClick": false,
+    "perMachine": false,
+    "runAfterFinish": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "menuCategory": "Productivity",
+    "shortcutName": "1SOLUTION Car Wash POS"
+  },
+  "portable": {
+    "artifactName": "${productName}-Portable-${version}-${arch}.${ext}"
+  },
+  "linux": {
+    "icon": "icon.png",
+    "artifactName": "${productName}-${version}-${arch}.${ext}",
+    "target": [
+      {
+        "target": "AppImage",
+        "arch": [
+          "x64"
+        ]
+      },
+      {
+        "target": "deb",
+        "arch": [
+          "x64"
+        ]
+      },
+      {
+        "target": "rpm",
+        "arch": [
+          "x64"
+        ]
+      }
+    ],
+    "category": "Office"
+  },
+  "dmg": {
+    "contents": [
+      {
+        "x": 130,
+        "y": 220
+      },
+      {
+        "x": 410,
+        "y": 220,
+        "type": "link",
+        "path": "/Applications"
+      }
+    ],
+    "window": {
+      "width": 540,
+      "height": 380
+    }
+  },
+  "publish": {
+    "provider": "github",
+    "owner": "1solution-dev",
+    "repo": "carwash-pos",
+    "private": true,
+    "releaseType": "release"
+  },
+  "buildVersion": "1.0.0",
+  "compression": "maximum",
+  "removePackageScripts": true,
+  "nodeGypRebuild": false,
+  "npmRebuild": false,
+  "buildDependenciesFromSource": false,
+  "electronCompile": false,
+  "electronVersion": "38.1.0"
+}
